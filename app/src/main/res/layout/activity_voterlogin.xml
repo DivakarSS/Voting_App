@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Voterlogin">
+
+    <include
+        android:id="@+id/adddetails_toolbar"
+        layout="@layout/home_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="403dp"
+        android:layout_height="665dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adddetails_toolbar">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="177dp"
+            android:layout_height="49dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="204dp"
+            android:layout_marginRight="204dp"
+            android:layout_marginBottom="594dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/voter"
+            android:textAlignment="gravity"
+            android:textAllCaps="true"
+            android:textColor="#FF7A49"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="72dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="399dp"
+            android:layout_height="308dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="280dp"
+            app:srcCompat="@drawable/loginpage" />
+
+        <EditText
+            android:id="@+id/id"
+            android:layout_width="309dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="194dp"
+            android:background="@drawable/round_border"
+            android:drawableStart="@drawable/ic_baseline_how_to_reg_24"
+            android:drawableLeft="@drawable/ic_baseline_how_to_reg_24"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Voter ID"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="309dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginRight="66dp"
+            android:layout_marginBottom="110dp"
+            android:background="@drawable/round_border"
+            android:drawableStart="@drawable/ic_baseline_remove_red_eye_24"
+            android:drawableLeft="@drawable/ic_baseline_remove_red_eye_24"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="DD/MM/YYYY"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/id"
+            tools:layout_editor_absoluteX="83dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="170dp"
+            android:layout_height="47dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="99dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="581dp"
+            android:layout_marginEnd="137dp"
+            android:layout_marginRight="137dp"
+            android:layout_marginBottom="42dp"
+            android:background="@drawable/button_shape"
+            android:text="LOGIN"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/pass"
+            tools:layout_editor_absoluteX="109dp" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
