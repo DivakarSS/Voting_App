@@ -20,8 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Adminloginpage extends AppCompatActivity {
 
-    EditText Id,dob;
-    Button login;
+    private EditText Id,dob;
+    private Button login;
     Switch active;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,46 +40,46 @@ public class Adminloginpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-                databaseReference.child("Admin").addValueEventListener(new ValueEventListener() {
+                databaseReference.child("Admin").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                     String id = Id.getText().toString();
-                     String password = dob.getText().toString();
+                        String id = Id.getText().toString();
+                        String password = dob.getText().toString();
 
-                     if(dataSnapshot.child(id).exists()){
-                         if(dataSnapshot.child(password).exists()){
-                             Preferences.setDataLogin(Adminloginpage.this,true);
-                             Preferences.setDataAs(Adminloginpage.this,"admin");
-                             startActivity(new Intent(Adminloginpage.this,Adminside.class));
+                        if(dataSnapshot.child(id).exists()){
+                            if (dataSnapshot.child(id).child("password").getValue(String.class).equals(password)){
+//                             Preferences.setDataLogin(Adminloginpage.this,true);
+//                             Preferences.setDataAs(Adminloginpage.this,"admin");
+//                             startActivity(new Intent(Adminloginpage.this,Adminside.class));
 
-                             if(active.isChecked()){
-//                                 if(dataSnapshot.child("as").equals("admin")){
-//                                     Preferences.setDataLogin(Adminloginpage.this,true);
-//                                     Preferences.setDataAs(Adminloginpage.this,"admin");
-//                                     startActivity(new Intent(Adminloginpage.this,Adminside.class));
-//
-//                                 }else{
-//                                     Preferences.setDataLogin(Adminloginpage.this,true);
-//                                 }
-                             }else{
-                                 if(dataSnapshot.child("as").equals("admin")){
-                                     Preferences.setDataLogin(Adminloginpage.this,false);
+                                if(active.isChecked()){
+                                    if(dataSnapshot.child(id).child("as").getValue(String.class).equals("admin")){
+                                        Preferences.setDataLogin(Adminloginpage.this,true);
+                                        Preferences.setDataAs(Adminloginpage.this,"admin");
+                                        startActivity(new Intent(Adminloginpage.this,Adminside.class));
 
+                                    }else {
+                                        Preferences.setDataLogin(Adminloginpage.this,true);
+                                    }
+                                }else{
+                                    if (dataSnapshot.child(id).child("as").getValue(String.class).equals("admin")) {
+                                        Preferences.setDataLogin(Adminloginpage.this, false);
+                                        startActivity(new Intent(Adminloginpage.this, Adminside.class));
 
-                                 }else{
-                                     Preferences.setDataLogin(Adminloginpage.this,false);
-                                 }
-                             }
+                                    } else{
+                                        Preferences.setDataLogin(Adminloginpage.this,false);
+                                    }
+                                }
 
-                         }
-                         else{
-                             Toast.makeText(Adminloginpage.this,"Invalid Entry",Toast.LENGTH_LONG).show();
-                         }
+                            }
+                            else{
+                                Toast.makeText(Adminloginpage.this,"Invalid Entry",Toast.LENGTH_LONG).show();
+                            }
 
-                     }
-                     else{
-                         Toast.makeText(Adminloginpage.this,"Invalid Entry",Toast.LENGTH_LONG).show();
-                     }
+                        }
+                        else{
+                            Toast.makeText(Adminloginpage.this,"Invalid Entry",Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override

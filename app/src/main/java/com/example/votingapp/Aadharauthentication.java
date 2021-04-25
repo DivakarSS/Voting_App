@@ -16,39 +16,43 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Voterlogin extends AppCompatActivity {
-    Button login;
-    EditText voterID,password;
-    private DatabaseReference ref;
+public class Aadharauthentication extends AppCompatActivity {
 
+    EditText voter_id,aadhar;
+    Button validate;
+    private DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_aadharauthentication);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_voterlogin);
-        login = findViewById(R.id.button);
 
-        voterID = findViewById(R.id.id);
-        password = findViewById(R.id.pass);
+        voter_id = findViewById(R.id.Voter_id);
+        aadhar = findViewById(R.id.aadhar);
+
+        validate = findViewById(R.id.button4);
 
         ref = FirebaseDatabase.getInstance().getReference().child("Votersdb");
 
-        login.setOnClickListener(new View.OnClickListener() {
+        validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ID = voterID.getText().toString();
-                String pass = password.getText().toString();
+                String ID = voter_id.getText().toString();
+                String aadharno = aadhar.getText().toString();
+
                 if(ref.child(ID) != null){
                     ref.child(ID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Votersdb votersdb = snapshot.getValue(Votersdb.class);
-                            if(pass.equals(votersdb.getDob())){
-                                Intent log = new Intent(Voterlogin.this,Votebuzzer.class);
+                            if(aadharno.equals(votersdb.getAadhar())){
+
+                                Intent log = new Intent(Aadharauthentication.this, Rightindex.class);
                                 startActivity(log);
+
                             }
                             else{
-                                Toast.makeText(Voterlogin.this,"Login Failed...",Toast.LENGTH_LONG).show();
+                                Toast.makeText(Aadharauthentication.this,"Login Failed...1",Toast.LENGTH_LONG).show();
                             }
                         }
 
@@ -59,12 +63,10 @@ public class Voterlogin extends AppCompatActivity {
                     });
                 }
                 else{
-                    Toast.makeText(Voterlogin.this, "Login Failed...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Aadharauthentication.this, "Login Failed...2", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
 
     }
 }

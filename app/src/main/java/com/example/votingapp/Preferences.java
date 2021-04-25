@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class Preferences {
+public class  Preferences {
     private static final String DATA_LOGIN = "status_login",DATA_AS ="as";
     private static SharedPreferences getSharedReferences(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context);

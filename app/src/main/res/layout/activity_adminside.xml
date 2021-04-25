@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/admin"
+            android:id="@+id/count"
             android:layout_width="198dp"
             android:layout_height="62dp"
             android:layout_alignParentStart="true"

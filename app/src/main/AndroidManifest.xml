@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp">
-        <activity android:name=".Adminside"></activity>
-
-
-
+        <activity android:name=".Rightindex"></activity>
+        <activity android:name=".Aadharauthentication" />
+        <activity android:name=".Votebuzzer" />
+        <activity android:name=".Updatevoter" />
+        <activity android:name=".Adminside" />
         <activity android:name=".Home" />
         <activity android:name=".Adminloginpage" />
         <activity android:name=".Voterlogin" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

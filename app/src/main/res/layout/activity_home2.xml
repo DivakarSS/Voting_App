@@ -75,7 +75,6 @@
 
 
             <TextView
-                android:id="@+id/textView8"
                 android:layout_width="367dp"
                 android:layout_height="62dp"
                 android:layout_alignParentStart="true"
@@ -100,7 +99,6 @@
                 tools:layout_editor_absoluteX="22dp" />
 
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="373dp"
                 android:layout_height="235dp"
                 android:layout_alignParentStart="true"
