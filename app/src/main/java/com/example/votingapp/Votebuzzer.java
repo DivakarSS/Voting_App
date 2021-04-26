@@ -17,11 +17,15 @@ public class Votebuzzer extends AppCompatActivity {
         getSupportActionBar().hide();
 
         vote = findViewById(R.id.button2);
+        Intent log = getIntent();
+        String Logined_Id = log.getStringExtra("Voter_ID");
 
         vote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent log = new Intent(Votebuzzer.this,Aadharauthentication.class);
+                log.putExtra("Voter_ID",Logined_Id);
                 startActivity(log);
             }
         });

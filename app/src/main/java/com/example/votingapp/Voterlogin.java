@@ -20,6 +20,7 @@ public class Voterlogin extends AppCompatActivity {
     Button login;
     EditText voterID,password;
     private DatabaseReference ref;
+    String logined_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class Voterlogin extends AppCompatActivity {
         password = findViewById(R.id.pass);
 
         ref = FirebaseDatabase.getInstance().getReference().child("Votersdb");
-
+        logined_id = voterID.getText().toString();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +46,7 @@ public class Voterlogin extends AppCompatActivity {
                             Votersdb votersdb = snapshot.getValue(Votersdb.class);
                             if(pass.equals(votersdb.getDob())){
                                 Intent log = new Intent(Voterlogin.this,Votebuzzer.class);
+                                log.putExtra("Voter_ID",logined_id);
                                 startActivity(log);
                             }
                             else{

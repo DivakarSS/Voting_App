@@ -31,6 +31,8 @@ public class Aadharauthentication extends AppCompatActivity {
         aadhar = findViewById(R.id.aadhar);
 
         validate = findViewById(R.id.button4);
+        Intent log = getIntent();
+        String Logined_Id = log.getStringExtra("Voter_ID");
 
         ref = FirebaseDatabase.getInstance().getReference().child("Votersdb");
 
@@ -45,15 +47,22 @@ public class Aadharauthentication extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Votersdb votersdb = snapshot.getValue(Votersdb.class);
-                            if(aadharno.equals(votersdb.getAadhar())){
+                            if(ID.equals(Logined_Id)){
 
-                                Intent log = new Intent(Aadharauthentication.this, Rightindex.class);
-                                startActivity(log);
+                                if(aadharno.equals(votersdb.getAadhar())){
 
+                                    Intent log = new Intent(Aadharauthentication.this, Rightindex.class);
+                                    startActivity(log);
+
+                                }
+                                else{
+                                    Toast.makeText(Aadharauthentication.this,"Login Failed...",Toast.LENGTH_LONG).show();
+                                }
                             }
                             else{
-                                Toast.makeText(Aadharauthentication.this,"Login Failed...1",Toast.LENGTH_LONG).show();
+                                Toast.makeText(Aadharauthentication.this,"Provide Your loggined Voter Id",Toast.LENGTH_LONG).show();
                             }
+
                         }
 
                         @Override
@@ -63,7 +72,7 @@ public class Aadharauthentication extends AppCompatActivity {
                     });
                 }
                 else{
-                    Toast.makeText(Aadharauthentication.this, "Login Failed...2", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Aadharauthentication.this, "Login Failed...", Toast.LENGTH_SHORT).show();
                 }
             }
         });
