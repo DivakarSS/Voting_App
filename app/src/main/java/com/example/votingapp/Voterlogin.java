@@ -33,12 +33,13 @@ public class Voterlogin extends AppCompatActivity {
         password = findViewById(R.id.pass);
 
         ref = FirebaseDatabase.getInstance().getReference().child("Votersdb");
-        logined_id = voterID.getText().toString();
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String ID = voterID.getText().toString();
                 String pass = password.getText().toString();
+                logined_id = ID;
                 if(ref.child(ID) != null){
                     ref.child(ID).addValueEventListener(new ValueEventListener() {
                         @Override

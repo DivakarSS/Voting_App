@@ -41,8 +41,8 @@ public class Aadharauthentication extends AppCompatActivity {
             public void onClick(View v) {
                 String ID = voter_id.getText().toString();
                 String aadharno = aadhar.getText().toString();
-
                 if(ref.child(ID) != null){
+
                     ref.child(ID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
